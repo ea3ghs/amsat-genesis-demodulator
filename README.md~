@@ -1,4 +1,3 @@
-
 #AMSAT-GENESIS DEMODULATOR
 
 El procesador del satélite AMSAT-GENESIS transmite tramas binarias en ASK a una velocidad de 50bps.
@@ -89,7 +88,6 @@ doppler. GPREDICT y GQRX permiten realizar esta operación.
 
 
 20200114, rev21
-
 73 eduardo, ea3ghs
 
 
