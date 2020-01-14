@@ -1,5 +1,5 @@
 
-#AMSAT-GENESIS DEMODULATOR
+# AMSAT-GENESIS DEMODULATOR
 
 El procesador del satélite AMSAT-GENESIS transmite tramas binarias en ASK a una velocidad de 50bps.
 Exiten cuatro tipos de paquetes:
@@ -13,7 +13,7 @@ Adicionalmente, se transmite una identificacion en telegrafía.
 La secuencia de transmision de paquetes es 2 3 2 4 2 cw 2 3 2 4 2 cw . . . .
 El paquete dos marca el inicio del minuto.
 
-##FORMATO DEL PAQUETE
+## FORMATO DEL PAQUETE
 
 Los paquetes tienen cuatro campos,
 
@@ -31,32 +31,32 @@ Direccion identifica al satélite que esta transmitiendo: 2=AM2SAT/GENESIS-L 3=AM
 Numero de secuencia es un contador secuencial de paquete transmitido modulo 2.
 La estructura detallada del campo de datos esta descrito con detalle en la hoja de calculo adjunta.
 
-###ORDEN
+### ORDEN
 
 Se transmite a)primero el bit de menor peso LSB de cada byte, y 
 b)primero el byte de menor peso en palabras de 10..32bits.
 
 
-##CODIFICACION
+## CODIFICACION
 
-###ALEATORIZADOR
+### ALEATORIZADOR
 
 Para evitar el estropicio que una secuencia de 00000 produce en el receptor,
 se ha introducido un aleatorizador con el polinomio g(x)=1+X^12+X^17 
 
 
-###CRC
+### CRC
 
 Sobre el paquete recibido, se realiza una suma de comprobacion basada en un CRC de 16 bits definido por el
 polinomio g(x)=x^16+x^12+x^5+1. Si la suma falla, el paquete se descarta
 
-###FEC
+### FEC
 
 El balance de enlace preve un balance de enlace suficiente, por lo que no se
 introduce redundancia, lo que a la vez, permite un uso eficiente del tiempo y energia.
 
 
-#DEMODULADOR
+# DEMODULADOR
 
 La rutina demoduladora espera un fichero denominado AUDIO.WAV
 muestreado a 8ksps, un canal, 16bits
@@ -77,7 +77,7 @@ Finalmente, con el paquete recibido, se desaletoriza, se desensambla y
 cada una de los campos de la estructura se convierte a valores físicos.
 
 
-#SOFTWARE
+# SOFTWARE
 
 Escrito en ANSIC, no se requiere ninguna libreria especial. Licencia GPL3
 
